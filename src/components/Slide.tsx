@@ -2,10 +2,10 @@
 export function Slide() {
   return (
     <div
-      className="overflow-hidden w-[100%] h-[30%] md:h-[50vh] xl:h-[70vh] flex justify-center"
+      className="overflow-hidden mx-auto mt-3 rounded-xl w-full h-[30%] md:h-[50vh] xl:h-[60vh] xl:w-[90%] flex justify-center shadow-lg"
     >
         <img
-          className="object-cover w-full h-full object-bottom xl:object-fill" 
+          className="object-fill w-full h-full object-center " 
           src="https://bhdicas.uai.com.br/wp-content/uploads/sites/23/2018/08/croods.jpg"
           alt=""
         />

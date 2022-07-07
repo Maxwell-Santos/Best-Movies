@@ -7,15 +7,15 @@ export function ContentMedia({ titulo }: ContentMediaProps) {
 
   return (
     <section 
-    className="relative mt-10"
+    className="relative mt-5 lg:mt-7"
     >
       <h1 
-      className="block ml-4 md:ml-10 text-lg md:text-xl mb-4 font-medium uppercase">
+      className="block ml-4 md:ml-10 text-lg md:text-2xl tracking-wide mb-4 font-medium uppercase">
         {titulo}
       </h1>
 
       <div 
-      className="flex space-x-5 xl:space-x-6 pb-5 overflow-x-scroll scrollbar-none"
+      className="flex space-x-2 lg:space-x-5 xl:space-x-6 pb-5 overflow-x-scroll scrollbar-none"
       >
 
         <Media 
