@@ -1,27 +1,55 @@
 import { Media } from "./Media";
+import { useEffect, useState } from "react";
+
+import MovieContentInterface from '../interfaces/MovieContentInterface'
 
 interface ContentMediaProps {
-  titulo?: string;
+  titulo: string;
 }
+
 export function ContentMedia({ titulo }: ContentMediaProps) {
+
+  const [movies, setMovies] = useState<MovieContentInterface[]>([]);
+
+  useEffect(() => {
+    fetch('https://api.themoviedb.org/3/movie/popular?api_key=0e719d679bc60373b0188b1edb2d1726&language=pt-BR&page=2')
+    .then(data => data.json())
+    .then(response => setMovies(response.results))
+  },[])
+
+  console.log(movies)
 
   return (
     <section 
-    className="relative mt-5 lg:mt-7"
+    className="relative my-5 lg:mt-7"
     >
       <h1 
       className="block ml-4 md:ml-10 text-lg md:text-2xl tracking-wide mb-4 font-medium uppercase">
         {titulo}
       </h1>
 
-      <div 
+      <ul 
       className="flex space-x-2 lg:space-x-5 xl:space-x-6 pb-5 overflow-x-scroll scrollbar-none"
       >
+        
+      {
+        movies?.map(movie => {
+          return(
+            <li 
+            key={movie.id}
+            className="first:ml-4 md:first:ml-10 flex-shrink-0 w-[170px] h-[250px] rounded-md shadow-lg bg-gray-500 md:w-[200px] md:h-[280px] overflow-hidden"
+            >
+              <Media data={movie} />
+            
+            </li>
+          )
+        })
+      }
 
-        <Media 
-          banner="https://br.web.img2.acsta.net/pictures/16/10/18/16/29/576071.jpg"
-        />
-
+{/* 
+<Media 
+                banner="https://br.web.img2.acsta.net/pictures/16/10/18/16/29/576071.jpg"
+              />
         <Media 
           banner="https://images-na.ssl-images-amazon.com/images/I/91L80naXOrL.jpg"
         />
@@ -56,9 +84,9 @@ export function ContentMedia({ titulo }: ContentMediaProps) {
 
         <Media 
           banner="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR46we87FG1Mw6WmP65GZggrfYdFN6eux9IA&usqp=CAU"
-        />
+        /> */}
 
-      </div>
+      </ul>
     </section>
   )
 }

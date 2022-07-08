@@ -7,11 +7,19 @@ export function MoreAboutMovie({banner, state}: b) {
   return (
     <div 
     className={`
-    ${state === true ? 'lg:[50%] max-w-[1000px]' : 'w-[0px]' } bg-white fixed top-0 right-0  bottom-0 z-10 transition`
+    ${state === true ? 
+      'sm:w-[70%] lg:w-[50%] max-w-[700px]' : 
+      'w-[0px]'} fixed top-0 right-0 bottom-0 z-10 transition`
     }
     >
-      <h1>Hello World</h1>
-      <img src={banner} alt="" />
+      <div 
+      className="w-full h-full bg-[#03090f] opacity-90 absolute"
+      ></div>
+
+      <img 
+      className="w-full h-auto object-cover"
+      src={`https://image.tmdb.org/t/p/w500${banner}`} 
+      alt="" />
     </div>
   )
 }

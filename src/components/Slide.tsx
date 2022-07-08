@@ -1,16 +1,17 @@
 
 export function Slide() {
+
   return (
     <div
-      className="overflow-hidden mx-auto mt-3 rounded-xl w-full h-[30%] md:h-[50vh] xl:h-[60vh] xl:w-[90%] flex justify-center shadow-lg"
+      className=" relative overflow-hidden mx-auto  w-full h-[40vh] md:h-[50vh] xl:h-[80vh] max-h-[800px] flex justify-center"
     >
         <img
-          className="object-fill w-full h-full object-center " 
-          src="https://bhdicas.uai.com.br/wp-content/uploads/sites/23/2018/08/croods.jpg"
+          className="object-cover w-full h-full object-center " 
+          src="https://velhaonda.files.wordpress.com/2013/09/04_a_origem_dos_guardi_es.jpg"
           alt=""
         />
 
-      <footer className=" hidden absolute bottom-0 left-0 right-0 h-20 from-black to-transparent bg-gradient-to-t text-gray-100 p-3"
+      <footer className="absolute bottom-0 left-0 right-0 h-[40%] from-[#081524] bg-gradient-to-t text-gray-100 p-3 pb-0 bg-cover"
       >
         <div className="h-full flex items-end"> {/*details*/}
           <span className="leading-tight">

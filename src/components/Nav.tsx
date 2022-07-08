@@ -1,6 +1,7 @@
 export function Nav(){
+
   return (
-  <nav className="hidden fixed left-0 right-0 top-4 backdrop-blur-sm w-[90%] p-3 rounded-lg bg-white/50 mx-auto shadow-md text-gray-900">
+  <nav className=" fixed left-0 right-0 top-0 w-full px-10 py-3 lg:py-5 bg-gray-900/50">
     <a href="">Home</a>
     <a href=""></a>
     <a href=""></a>
