@@ -1,7 +1,8 @@
 import { Media } from "./Media";
 import { useEffect, useState } from "react";
 
-import MovieContentInterface from '../interfaces/MovieContentInterface'
+import { MovieContentInterface } from '../interfaces/MovieContentInterface'
+import { MOVIE_API } from "../APIs/MOVIES_API";
 
 interface ContentMediaProps {
   titulo: string;
@@ -12,7 +13,7 @@ export function ContentMedia({ titulo }: ContentMediaProps) {
   const [movies, setMovies] = useState<MovieContentInterface[]>([]);
 
   useEffect(() => {
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=0e719d679bc60373b0188b1edb2d1726&language=pt-BR&page=2')
+    fetch(MOVIE_API)
     .then(data => data.json())
     .then(response => setMovies(response.results))
   },[])
@@ -39,6 +40,7 @@ export function ContentMedia({ titulo }: ContentMediaProps) {
             key={movie.id}
             className="first:ml-4 md:first:ml-10 flex-shrink-0 w-[170px] h-[250px] rounded-md shadow-lg bg-gray-500 md:w-[200px] md:h-[280px] overflow-hidden"
             >
+              {/*armazenando os atributos de cada movie nessa prop (data)*/}
               <Media data={movie} />
             
             </li>

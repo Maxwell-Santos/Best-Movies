@@ -1,4 +1,4 @@
-export default interface MovieContentInterface{
+export interface MovieContentInterface{
     id?: number,
     title?: string,
     poster_path?: string,
