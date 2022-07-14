@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 import { MovieContentInterface } from '../interfaces/MovieContentInterface'
 import { MOVIE_API } from "../APIs/MOVIES_API";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/css';
+import "swiper/css/free-mode";
+import { FreeMode } from "swiper";
+
+
 interface ContentMediaProps {
   titulo: string;
 }
@@ -14,41 +20,45 @@ export function ContentMedia({ titulo }: ContentMediaProps) {
 
   useEffect(() => {
     fetch(MOVIE_API)
-    .then(data => data.json())
-    .then(response => setMovies(response.results))
-  },[])
-
-  console.log(movies)
+      .then(data => data.json())
+      .then(response => setMovies(response.results))
+  }, [])
 
   return (
-    <section 
-    className="relative my-5 lg:mt-7"
+    <section
+      className="my-5 lg:mt-7"
     >
-      <h1 
-      className="block ml-4 md:ml-10 text-lg md:text-2xl tracking-wide mb-4 font-medium uppercase">
+      <h1
+        className="block ml-4 md:ml-10 text-lg md:text-2xl tracking-wide mb-4 font-medium uppercase">
         {titulo}
       </h1>
 
-      <ul 
-      className="flex space-x-2 lg:space-x-5 xl:space-x-6 pb-5 overflow-x-scroll scrollbar-none"
-      >
-        
-      {
-        movies?.map(movie => {
-          return(
-            <li 
-            key={movie.id}
-            className="first:ml-4 md:first:ml-10 flex-shrink-0 w-[170px] h-[250px] rounded-md shadow-lg bg-gray-500 md:w-[200px] md:h-[280px] overflow-hidden"
-            >
-              {/*armazenando os atributos de cada movie nessa prop (data)*/}
-              <Media data={movie} />
-            
-            </li>
-          )
-        })
-      }
 
-{/* 
+
+      <Swiper
+        slidesPerView={"auto"}
+        freeMode={true}
+        spaceBetween={10}
+        modules={[FreeMode]}
+        className=""
+      >
+        {
+          movies?.map(movie => {
+            return (
+              <SwiperSlide
+                key={movie.id}
+                className="first:ml-4 md:first:ml-10 flex-shrink-0 w-[170px] h-[250px] rounded-md shadow-lg bg-gray-500 md:w-[200px] md:h-[280px] overflow-hidden"
+              >
+                {/*armazenando os atributos de cada movie nessa prop (data)*/}
+                <Media data={movie} />
+
+              </SwiperSlide>
+            )
+          })
+        }
+      </Swiper>
+
+      {/* 
 <Media 
                 banner="https://br.web.img2.acsta.net/pictures/16/10/18/16/29/576071.jpg"
               />
@@ -88,7 +98,6 @@ export function ContentMedia({ titulo }: ContentMediaProps) {
           banner="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR46we87FG1Mw6WmP65GZggrfYdFN6eux9IA&usqp=CAU"
         /> */}
 
-      </ul>
     </section>
   )
 }

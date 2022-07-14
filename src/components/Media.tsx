@@ -37,7 +37,7 @@ export function Media({ data }: MovieProps) {
         </p>
 
         <button
-          className={` ${showMore ? 'bg-green-600 hover:bg-green-500' : 'bg-[#123a68] hover:bg-[#08203b]'} w-full py-2 text-sm md:py-3 transition text-center rounded-lg shadow-md`}
+          className={` ${showMore ? 'bg-[#08203b] pointer-events-none' : 'bg-[#123a68] hover:bg-[#08203b]'} w-full py-2 text-sm md:py-3 transition text-center rounded-lg shadow-md`}
           onClick={() => setShowMore(true)}
         // onBlur={() => setShowMore(false)}
         >
