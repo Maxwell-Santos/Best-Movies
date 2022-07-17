@@ -5,4 +5,4 @@ export interface MovieContentInterface{
     genre_ids?: number[],
     release_date?: string, 
     overview?: string,
-}
+};

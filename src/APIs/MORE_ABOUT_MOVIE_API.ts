@@ -1,1 +1,0 @@
-export const MORE_ABOUT_MOVIE_API = 'NADA'

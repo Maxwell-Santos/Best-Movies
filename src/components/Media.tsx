@@ -39,14 +39,13 @@ export function Media({ data }: MovieProps) {
         <button
           className={` ${showMore ? 'bg-[#08203b] pointer-events-none' : 'bg-[#123a68] hover:bg-[#08203b]'} w-full py-2 text-sm md:py-3 transition text-center rounded-lg shadow-md`}
           onClick={() => setShowMore(true)}
-        // onBlur={() => setShowMore(false)}
         >
           Saiba mais
         </button>
       </div>
 
       {
-        showMore && <MoreAboutMovie state={{ showMore, setShowMore }} moreData={ data } />
+        showMore && <MoreAboutMovie state={{ showMore, setShowMore }} data={ data } />
       }
     </div>
   )
