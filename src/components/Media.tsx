@@ -13,21 +13,17 @@ export function Media({ data }: MovieProps) {
 
   const [showMore, setShowMore] = useState(false);
 
-  const windowSize = () => {
-    screen.width <= 1024 && setShowMore(true); 
-  }
-
   return (
     <div
       className="relative group bg-[#283f5a] h-full w-full"
-      onClick={() => windowSize()}
       >
 
       <img
-        className="w-full h-full object-cover transition group-hover:blur-sm delay-100"
+        className="w-full h-full object-cover transition group-hover:blur-sm delay-100 lg:pointer-events-none"
         src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
         alt="banner"
         loading="lazy"
+        onClick={() => setShowMore(true)}
       />
 
       <div

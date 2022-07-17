@@ -10,7 +10,7 @@ export function Index() {
     <div
       className="mb-9"
     >
-      <Title />
+      {/* <Title /> */}
       <Slide />
 
       <main

@@ -19,7 +19,7 @@ export function MoreAboutMovie({ state, data }: MovieAtr) {
   const { id } = data;
 
   const movie = FetchMoreAboutMovie(id);
-  
+
   return (
   
     <Modal
@@ -54,6 +54,17 @@ export function MoreAboutMovie({ state, data }: MovieAtr) {
             {data.title}
           </h1>
 
+          {movie && 
+          <Rating 
+            className="w-full justify-center my-3"
+            defaultValue={movie.vote_average / 2} 
+            precision={0.5} 
+            icon={<StarRateIcon style={{color:'#ffffff' }}/>}
+            emptyIcon={<StarBorderIcon style={{color: '#ffffff'}}/>}
+            readOnly 
+          />
+          }
+
           <p
             className="mt-10 ml-3 leading-relaxed text-base md:text-lg first-letter:text-5xl first-letter:float-left first-letter:tracking-widest"
           >
@@ -68,16 +79,6 @@ export function MoreAboutMovie({ state, data }: MovieAtr) {
             }
           </div>
 
-          {movie && 
-          <Rating 
-            className="-gray-100"
-            defaultValue={movie.vote_average / 2} 
-            precision={0.5} 
-            icon={<StarRateIcon style={{color:'#ffffff' }}/>}
-            emptyIcon={<StarBorderIcon style={{color: '#ffffff'}}/>}
-            readOnly 
-          />
-          }
         </div>
 
       </div>
