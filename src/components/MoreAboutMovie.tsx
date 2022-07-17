@@ -8,7 +8,7 @@ import { Modal, Rating } from "@mui/material";
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-// import { AnimatePresence, motion } from "framer-motion";
+
 interface MovieAtr extends MovieContentInterface {
   state: any;
   data: any;
@@ -19,9 +19,7 @@ export function MoreAboutMovie({ state, data }: MovieAtr) {
   const { id } = data;
 
   const movie = FetchMoreAboutMovie(id);
-
-  state.showMore === true ? document.body.style.overflow = 'hidden' : document.body.style.overflowY = 'scroll'; 
-
+  
   return (
   
     <Modal
@@ -30,7 +28,7 @@ export function MoreAboutMovie({ state, data }: MovieAtr) {
     >
      
       <div
-        className="text-white w-full sm:w-[70%] lg:w-[50%] h-full max-w-[700px] absolute"
+        className="text-white h-full w-full sm:w-[70%] lg:w-[50%] max-w-[700px] absolute"
       >
 
         <div
