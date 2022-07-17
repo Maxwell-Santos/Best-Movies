@@ -1,11 +1,14 @@
 import { MovieContentInterface } from "../interfaces/MovieContentInterface";
-import { Genres } from "./Genres";
 import { FetchMoreAboutMovie } from "../APIs/MORE_ABOUT_MOVIE_API";
+
+import { Genres } from "./Genres";
+
 import { Modal, Rating } from "@mui/material";
 
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+// import { AnimatePresence, motion } from "framer-motion";
 interface MovieAtr extends MovieContentInterface {
   state: any;
   data: any;
@@ -17,18 +20,13 @@ export function MoreAboutMovie({ state, data }: MovieAtr) {
 
   const movie = FetchMoreAboutMovie(id);
 
-  console.log(movie)
-
-  /**
-   * essa nova variável, existe porque da api que busco os dados dos filmes, tem avaliação de 1 à 10
-   * e eu só quero estrelas de avaliação de 1 à 5 
-   */
-
   return (
+  
     <Modal
       open={state.showMore}
-      className="flex justify-end bg-[#03090f] bg-opacity-50 backdrop-blur-sm w-screen h-screen"
+      className="flex justify-end bg-[#03090f] bg-opacity-50 backdrop-blur-sm"
     >
+     
       <div
         className="text-white sm:w-[70%] lg:w-[50%] h-full max-w-[700px] absolute"
       >
@@ -83,7 +81,6 @@ export function MoreAboutMovie({ state, data }: MovieAtr) {
         </div>
 
       </div>
-
     </Modal>
   )
 }
