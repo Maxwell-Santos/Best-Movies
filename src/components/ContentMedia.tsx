@@ -19,8 +19,6 @@ export function ContentMedia({ titulo }: ContentMediaProps) {
 
   const movies  = useContext<MovieContentInterface[]>(MovieContext);
 
-  console.log(movies)
-
   return (
     <section
       className="my-5 lg:mt-7"
@@ -42,7 +40,7 @@ export function ContentMedia({ titulo }: ContentMediaProps) {
               return (
                 <SwiperSlide
                   key={movie.id}
-                  className="first:ml-4 md:first:ml-10 flex-shrink-0 w-[160px] h-[240px] rounded-md shadow-lg bg-gray-500 md:w-[200px] md:h-[280px] overflow-hidden"
+                  className="first:ml-4 md:first:ml-10 flex-shrink-0 w-[130px] h-[210px] rounded-md shadow-lg bg-gray-500 md:w-[200px] md:h-[280px] overflow-hidden"
                 >
                   {/*armazenando os atributos de cada movie nessa prop (data)*/}
                   <Media data={movie} />

@@ -13,8 +13,9 @@ export function Media({ data }: MovieProps) {
 
   return (
     <div
-      className={`relative group bg-[#283f5a]`}>
-      <img
+      className={`relative group bg-[#283f5a] h-full w-full`}>
+
+ <img
         className="w-full h-full object-cover transition group-hover:blur-sm delay-100"
         src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
         alt="banner"
@@ -22,17 +23,18 @@ export function Media({ data }: MovieProps) {
       />
 
       <div
-        className={`absolute transform translate-y-[100%] bg-gray-700/50 transition duration-500 ease-in-out w-full min-h-[70%] h-auto flex flex-col items-center justify-center gap-3 group-hover:-translate-y-[100%] group-focus:-translate-y-[100%] p-4 shadow-xl ${showMore && '-translate-y-[100%]'}`}>
+        className={`absolute transform translate-y-[100%] bg-gray-700/50 transition duration-500 ease-in-out w-full h-auto min-h-[70%] flex flex-col items-center justify-center gap-3 group-hover:-translate-y-[100%] p-4 ${showMore && '-translate-y-[100%]'}`}
+      >
 
         <h2
-          className="line-clamp-1 leading-tight text-sm md:text-base"
+          className="line-clamp-1 leading-tight text-sm md:text-base font-bold tracking-wide"
           title={data.title}
         >
           {data.title}
         </h2>
 
         <p
-          className="line-clamp-3 leading-tight font-light text-xs md:text-sm ">
+          className="line-clamp-4 leading-tight font-light text-xs md:text-sm ">
           {data.overview}
         </p>
 

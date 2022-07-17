@@ -18,9 +18,9 @@
 }
 
 .swiper-button-prev:hover{
-  background: rgb(0,0,0);
-  background: linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.8) 41%, rgba(0,0,0,0.950) 72%);
+  background: linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(08,21,36,0.8) 41%, rgba(08,21,36,0.950) 72%);
 }
+
 .swiper-button-next:hover{
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.8) 41%, rgba(0,0,0,0.950) 72%);
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(08,21,36,0.8) 41%, rgba(08,21,36,0.950) 72%);
 }

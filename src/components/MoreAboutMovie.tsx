@@ -20,15 +20,17 @@ export function MoreAboutMovie({ state, data }: MovieAtr) {
 
   const movie = FetchMoreAboutMovie(id);
 
+  state.showMore === true ? document.body.style.overflow = 'hidden' : document.body.style.overflowY = 'scroll'; 
+
   return (
   
     <Modal
       open={state.showMore}
-      className="flex justify-end bg-[#03090f] bg-opacity-50 backdrop-blur-sm"
+      className="flex justify-end bg-[#03090f] bg-opacity-50 backdrop-blur-sm w-screen h-screen"
     >
      
       <div
-        className="text-white sm:w-[70%] lg:w-[50%] h-full max-w-[700px] absolute"
+        className="text-white w-full sm:w-[70%] lg:w-[50%] h-full max-w-[700px] absolute"
       >
 
         <div
@@ -61,7 +63,7 @@ export function MoreAboutMovie({ state, data }: MovieAtr) {
           </p>
 
           <div
-          className="w-full flex justify-end mt-7 space-x-2"
+          className="w-full flex justify-end mt-7 gap-2 flex-wrap"
           >
             {
             movie?.genres.map(genre => <Genres key={genre.id} data={genre.name}/>)
