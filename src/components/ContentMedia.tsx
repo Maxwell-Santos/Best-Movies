@@ -21,10 +21,10 @@ export function ContentMedia({ titulo }: ContentMediaProps) {
 
   return (
     <section
-      className="my-5 lg:mt-7"
+      className="mt-5 lg:mt-10"
     >
-      <h1
-        className="block ml-4 md:ml-10 text-lg md:text-2xl tracking-wide mb-4 font-medium uppercase">
+      <h1 
+        className="block ml-4 md:ml-10 text-lg md:text-2xl tracking-wide mb-1 font-medium uppercase">
         {titulo}
       </h1>
 
@@ -34,6 +34,7 @@ export function ContentMedia({ titulo }: ContentMediaProps) {
           spaceBetween={10}
           modules={[FreeMode, Navigation]}
           navigation={screen.width >= 760 ? true : false} //mostrará o botão de navegação apenas se a tela for maior ou igual à 760px
+          className="pr-5"
         >
           {
             movies.map(movie => {
