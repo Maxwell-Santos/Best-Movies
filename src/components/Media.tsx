@@ -44,9 +44,9 @@ export function Media({ data }: MovieProps) {
 
           <button
             onClick={() => setShowMore(true)}
-            className={` ${showMore ? 'bg-[#08203b] pointer-events-none' : 'bg-[#1923ad] hover:bg-[#121983]'} w-full text-base tracking-wide font-bold py-2 transition text-center rounded-md shadow-md`}
+            className={` ${showMore ? 'bg-[#08203b] pointer-events-none' : 'bg-[#0d3d74] hover:bg-[#121983]'} w-full text-base tracking-wide font-bold py-2 transition text-center rounded-md shadow-md`}
           >
-            Mais sobre o título
+            Saiba mais
           </button>
 
       </div>

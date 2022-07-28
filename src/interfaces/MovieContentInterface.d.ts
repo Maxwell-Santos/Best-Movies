@@ -11,13 +11,3 @@ export interface MovieContentInterface {
   popularity?: number;
   
 };
-
-export interface MostPopularMovie{
-  title?: string,
-  backdrop_path?: string;
-  popularity?: number;
-  genre_ids?: number[],  
-  release_date?: string,
-
-
-}

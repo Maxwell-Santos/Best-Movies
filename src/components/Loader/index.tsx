@@ -7,8 +7,8 @@ export function Loader(){
 
   return(
     <div 
-    className={`fixed inset-0 grid place-items-center z-50 bg-[#081524] transition-custom
-      ${loading && 'opacity-0 invisible'}
+    className={`fixed opacity-1 inset-0 grid place-items-center z-50 bg-[#081524] transition-custom
+      ${loading && 'opacity-0 invisible display-none'}
     `}
     >
 
