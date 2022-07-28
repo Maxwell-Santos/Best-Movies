@@ -1,6 +1,8 @@
 import { Media } from "./Media";
 import { useContext } from "react";
+
 import { MovieContext } from "../providers/MovieContext";
+import { MovieTopRatedContext } from "../providers/MovieTopRatedContext";
 
 import { MovieContentInterface } from '../interfaces/MovieContentInterface'
 
@@ -13,12 +15,22 @@ import '../styles/buttonSwiper.css';
 
 interface ContentMediaProps {
   titulo: string;
+  id: string;
 }
 
-export function ContentMedia({ titulo }: ContentMediaProps) {
+export function ContentMedia({ titulo, id }: ContentMediaProps) {
+  
+  let context;
 
-  const movies  = useContext<MovieContentInterface[]>(MovieContext);
+  if(id == 'popular'){
+    context = MovieContext
 
+  } else {
+    context = MovieTopRatedContext
+  }
+
+  const movies  = useContext<MovieContentInterface[]>(context);
+  
   return (
     <section
       className="mt-5 lg:mt-10"
