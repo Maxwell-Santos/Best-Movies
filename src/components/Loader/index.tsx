@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
 export function Loader(){
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  window.addEventListener('load', () => setLoading(false))
+  window.addEventListener('load', () => setLoading(true))
 
   return(
     <div 
     className={`fixed inset-0 grid place-items-center z-50 bg-[#081524] transition-custom
-      ${loading == false && 'opacity-0 invisible'}
+      ${loading && 'opacity-0 invisible'}
     `}
     >
 

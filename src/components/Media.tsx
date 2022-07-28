@@ -31,22 +31,22 @@ export function Media({ data }: MovieProps) {
       >
 
         <h2
-          className="line-clamp-1 leading-tight text-sm md:text-base font-bold tracking-wide"
+          className="line-clamp-1 leading-tight text-lg font-bold tracking-wide"
           title={data.title}
         >
           {data.title}
         </h2>
 
         <p
-          className="line-clamp-4 leading-tight font-light text-xs md:text-sm ">
+          className="line-clamp-4 leading-tight font-normal text-sm md:text-base ">
           {data.overview}
         </p>
 
           <button
             onClick={() => setShowMore(true)}
-            className={` ${showMore ? 'bg-[#08203b] pointer-events-none' : 'bg-[#123a68] hover:bg-[#08203b]'} w-full py-2 text-sm md:py-3 transition text-center rounded-lg shadow-md`}
+            className={` ${showMore ? 'bg-[#08203b] pointer-events-none' : 'bg-[#1923ad] hover:bg-[#121983]'} w-full text-base tracking-wide font-bold py-2 transition text-center rounded-md shadow-md`}
           >
-            Saiba mais
+            Mais sobre o título
           </button>
 
       </div>

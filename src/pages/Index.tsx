@@ -9,14 +9,13 @@ export function Index() {
 
   return (
     <>
+      
       <Loader />
 
-      <div
-        className="mb-9"
-      >
-        {/* <Title /> */}
+      <div className="mb-9">
         <MovieProvider>
-          <Slide />
+
+          {/* <Slide /> */}
 
           <main
             className="mb-10"

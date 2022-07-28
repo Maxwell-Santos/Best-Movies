@@ -1,4 +1,6 @@
 export interface MoreAboutMovieInterface{
+  id: number;
+
   genres:{
     id: number,
     name: string
@@ -8,5 +10,4 @@ export interface MoreAboutMovieInterface{
   runtime: number;
   vote_average: number;
   vote_count: number | string;
-  id: number;
 }

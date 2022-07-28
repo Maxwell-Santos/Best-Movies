@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        poppins: 'Poppins, sans-serif',
+        lato: 'Lato, sans-serif',
       },
       animation: {
         'spin-fast': 'spin 1s linear infinite',

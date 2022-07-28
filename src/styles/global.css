@@ -4,6 +4,6 @@
 
 @layer base{
   html{
-    @apply font-poppins bg-[#081524] scroll-smooth text-gray-200 scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-900;
+    @apply font-lato bg-[#081524] scroll-smooth text-gray-200 scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-900;
   }
 }

@@ -29,17 +29,17 @@ export function MoreAboutMovie({ state, data }: MovieAtributes) {
       className="flex justify-end bg-[#03090f] bg-opacity-60 backdrop-blur-sm w-screen h-screen z-10"
     >
       <div
-        className="text-white h-full w-full sm:w-[70%] lg:w-[50%] max-w-[700px] absolute"
+        className="text-white h-full w-full sm:w-[70vw] lg:w-[50vw] max-w-[700px] absolute"
       >
 
         <div
-          className="w-full h-full opacity-50 absolute bg-[#03090f]"
+          className="w-full h-full opacity-60 absolute bg-[#03090f]"
         ></div>
 
         <img
           className="w-full h-full object-cover object-center -z-10 absolute"
           src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
-          alt="Poster" 
+          alt="Poster"
         />
 
         <ClearRoundedIcon
@@ -57,32 +57,20 @@ export function MoreAboutMovie({ state, data }: MovieAtributes) {
           </h1>
 
           <span
-          className="w-fit text-sm p-1 px-3 ml-3 text-end padding rounded-full bg-gray-100/50"
+            className="flex gap-2 w-fit mx-auto items-center"
           >
-            {movie?.release_date}
-          </span>
-
-          <span
-          className="text-2xl mx-auto tracking-wide"
-          >
-            {runtimeInHours?.toFixed(2) + 'h'}
-          </span>
-
-        <span
-        className="flex gap-2 w-fit mx-auto items-center"
-        >
-          {movie &&
-            <Rating
-              className="w-full justify-center my-3"
-              defaultValue={movie.vote_average / 2} //a API retorna um valor de >=10, mas eu usei ese valor como estrelas e só tem 5 estrelas, por isso a divisão por 2
-              precision={0.5}
-              icon={<StarRateIcon style={{ color: '#ffffff' }} />}
-              emptyIcon={<StarBorderIcon style={{ color: '#ffffff' }} />}
-              readOnly
-            />
-          }
-            <span 
-            className="text-zinc-300 font-thin"
+            {movie &&
+              <Rating
+                className="w-full justify-center my-3"
+                defaultValue={movie.vote_average / 2} //a API retorna um valor de >=10, mas eu usei ese valor como estrelas e só tem 5 estrelas, por isso a divisão por 2
+                precision={0.5}
+                icon={<StarRateIcon style={{ color: '#ffffff' }} />}
+                emptyIcon={<StarBorderIcon style={{ color: '#ffffff' }} />}
+                readOnly
+              />
+            }
+            <span
+              className="text-zinc-300 font-thin text-sm"
 
             >
               {movie && (
@@ -101,11 +89,27 @@ export function MoreAboutMovie({ state, data }: MovieAtributes) {
           </div>
 
           <p
-            className="mt-3 ml-3 leading-relaxed text-base md:text-lg first-letter:text-5xl first-letter:float-left first-letter:tracking-widest first-letter:leading-3"
+            className="mt-3 ml-3 leading-relaxed text-base md:text-lg first-letter:text-5xl first-letter:float-left first-letter:tracking-widest"
           >
             {data.overview}
           </p>
 
+        
+
+        <div 
+        className="flex-col flex text-lg ml-3 mt-5 tracking-wide"
+        >
+          <span
+          >
+            Lançamento: {movie?.release_date}
+          </span>
+
+          <span
+          >
+            Duração: {runtimeInHours?.toFixed(2) + 'h'}
+          </span>
+
+        </div>
         </div>
 
       </div>

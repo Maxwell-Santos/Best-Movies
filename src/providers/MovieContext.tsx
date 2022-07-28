@@ -1,4 +1,3 @@
-// import { Container } from './styles';
 
 import { createContext, useEffect, useState } from "react"
 import { MOVIE_API } from "../APIs/MOVIES_API";
@@ -13,7 +12,9 @@ export function MovieProvider(props: any) {
   useEffect(() => {
     fetch(MOVIE_API)
       .then(data => data.json())
-      .then(response => setMovies(response.results))
+      .then(response => {
+        setMovies(response.results)
+      })
   }, [])
 
   return (
