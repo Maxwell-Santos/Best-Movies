@@ -7,6 +7,12 @@ module.exports = {
       fontFamily: {
         poppins: 'Poppins, sans-serif',
       },
+      animation: {
+        'spin-fast': 'spin 1s linear infinite',
+      },
+      transitionProperty:{
+        'custom': 'opacity .25s, visibility 1s'
+      }
     },
   },
   plugins: [

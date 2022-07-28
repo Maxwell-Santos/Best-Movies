@@ -42,12 +42,13 @@ export function Media({ data }: MovieProps) {
           {data.overview}
         </p>
 
-        <button
-          className={` ${showMore ? 'bg-[#08203b] pointer-events-none' : 'bg-[#123a68] hover:bg-[#08203b]'} w-full py-2 text-sm md:py-3 transition text-center rounded-lg shadow-md`}
-          onClick={() => setShowMore(true)}
-        >
-          Saiba mais
-        </button>
+          <button
+            onClick={() => setShowMore(true)}
+            className={` ${showMore ? 'bg-[#08203b] pointer-events-none' : 'bg-[#123a68] hover:bg-[#08203b]'} w-full py-2 text-sm md:py-3 transition text-center rounded-lg shadow-md`}
+          >
+            Saiba mais
+          </button>
+
       </div>
 
       {
