@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap');
+
+
+.number{
+  font-family: 'Oswald', sans-serif;
+  font-size: 10em;
+  font-weight: 600;
+  line-height: .950em;
+  color: #031224;
+  -webkit-text-stroke: 2px #fff;
+  letter-spacing: -12px;
+}
+
+@media (max-width: 768px){
+  .number{
+    font-size: 7em;
+  }
+
+}

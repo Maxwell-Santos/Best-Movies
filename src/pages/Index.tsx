@@ -9,17 +9,17 @@ export function Index() {
   return (
     <>
 
-      <Loader />
+      {/* <Loader /> */}
 
       <div className="mb-9">
 
         <main className="mb-10">
 
-          <MovieProvider>
+          <MovieProvider> {/*Contexto fazendo uma requisição dos filmes mais populares */}
             <ContentMedia titulo="Mais Populares" id="popular" />
           </MovieProvider>
 
-          <MovieTopRatedProvider>
+          <MovieTopRatedProvider> {/*Contexto fazendo uma requisição dos filmes mais votados*/}
             <ContentMedia titulo="aclamados pela crítica" id="lancamento"/>
           </MovieTopRatedProvider>
 
@@ -31,4 +31,4 @@ export function Index() {
       </div>
     </>
   )
-}
+} 

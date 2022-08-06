@@ -12,12 +12,19 @@ import 'swiper/css';
 import "swiper/css/free-mode";
 import 'swiper/css/navigation';
 import '../styles/buttonSwiper.css';
+import { NumberPopularity } from "./NumberPopularity";
 
 interface ContentMediaProps {
   titulo: string;
   id: string;
 }
 
+
+/**
+ * Este componente é abstrato e ele tem um pouco de polimorfismo do paradigma POO
+ * Ele faz a mesma coisa duas vezes, como são duas listas 'mais populares' e 'aclamados pela crítica', ele se adapta para cada contexto.
+ * isso é feito por meio do if else, que filtra o contexto escolhido para enviar como parâmetro
+ */
 export function ContentMedia({ titulo, id }: ContentMediaProps) {
   
   let context;
@@ -49,15 +56,25 @@ export function ContentMedia({ titulo, id }: ContentMediaProps) {
           className="pr-5"
         >
           {
-            movies.map(movie => {
+            movies.map((movie, index) => {
+              
               return (
                 <SwiperSlide
                   key={movie.id}
-                  className="first:ml-4 md:first:ml-10 flex-shrink-0 w-[130px] h-[210px] rounded-md shadow-lg bg-gray-500 md:w-[200px] md:h-[280px] overflow-hidden"
+                  className="first:ml-10 md:first:ml-20 ml-6 md:ml-12 flex-shrink-0 w-[130px] h-[210px] md:w-[200px] md:h-[280px] z-70"
                 >
-                  {/*armazenando os atributos de cada movie nessa prop (data)*/}
-                  <Media data={movie} />
+                  
+                  {/*Essa verificação é feita porque, como o mesmo componente renderiza dois componentes diferentes, eu quero que o componente "NumberPopularity" só na primeira lista */}
 
+                  { id == 'popular' ? (
+                    <>
+                      <NumberPopularity indexMovie={index}/>
+                      <Media data={movie} /> {/*passando os atributos por meio de props */}
+                    </>
+
+                    ) : <Media data={movie} />
+                }
+                
                 </SwiperSlide>
               )
             })
