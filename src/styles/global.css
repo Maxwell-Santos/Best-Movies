@@ -4,6 +4,6 @@
 
 @layer base{
   html{
-    @apply font-lato bg-[#081524] scroll-smooth text-gray-200 scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-900;
+    @apply font-lato bg-gradient-to-b from-[#081524] via-[#081524] to-[#0a0c0f] scroll-smooth text-gray-200 scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-900;
   }
 }
