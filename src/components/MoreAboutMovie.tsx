@@ -1,13 +1,13 @@
 import { MovieContentInterface } from "../interfaces/MovieContentInterface";
-import { FetchMoreAboutMovie } from "../APIs/MORE_ABOUT_MOVIE_API";
+import { FetchMoreAboutMovie } from "../services/MORE_ABOUT_MOVIE_API";
 
 import { Genres } from "./Genres";
-
 import { Modal, Rating } from "@mui/material";
-
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+
+import { Link } from "react-router-dom";
 
 interface MovieAtributes extends MovieContentInterface {
   state?: any;
@@ -85,7 +85,13 @@ export function MoreAboutMovie({ state, data }: MovieAtributes) {
             className="w-full flex ml-3 mt-10 gap-2 flex-wrap text-zinc-100"
           >
             {
-              movie?.genres.map(genre => <Genres key={genre.id} data={genre.name} />)
+              movie?.genres.map(genre => {
+                return (
+                <Link to={`/${genre.id}/${genre.name}`} key={genre.id}>
+                  <Genres key={genre.id} data={genre.name} />
+                </Link>
+              )}
+              )
             }
           </div>
 
@@ -95,22 +101,22 @@ export function MoreAboutMovie({ state, data }: MovieAtributes) {
             {data.overview}
           </p>
 
-        
 
-        <div 
-        className="flex-col flex text-lg ml-3 mt-5 tracking-wide"
-        >
-          <span
+
+          <div
+            className="flex-col flex text-lg ml-3 mt-5 tracking-wide"
           >
-            Lançamento: {movie?.release_date}
-          </span>
+            <span
+            >
+              Lançamento: {movie?.release_date}
+            </span>
 
-          <span
-          >
-            Duração: {runtimeInHours?.toFixed(2) + 'h'}
-          </span>
+            <span
+            >
+              Duração: {runtimeInHours?.toFixed(2) + 'h'}
+            </span>
 
-        </div>
+          </div>
         </div>
 
       </div>

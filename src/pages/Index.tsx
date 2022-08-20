@@ -8,9 +8,6 @@ export function Index() {
 
   return (
     <>
-
-      {/* <Loader /> */}
-
       <div className="mb-9">
 
         <main className="mb-10">
@@ -24,10 +21,8 @@ export function Index() {
           </MovieTopRatedProvider>
 
         </main>
-
-
+        
         <Footer />
-
       </div>
     </>
   )

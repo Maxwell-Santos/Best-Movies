@@ -1,15 +1,13 @@
 import './styles.css'
 
-interface NumberPopularityProps{
+interface HateProps{
   indexMovie: number;
 }
 
 
-export function NumberPopularity({indexMovie}: NumberPopularityProps){
+export function Hate({indexMovie}: HateProps){
 
   let ordered = indexMovie + 1
-
-  console.log(ordered)
 
   return (
     

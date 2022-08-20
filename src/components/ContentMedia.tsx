@@ -12,7 +12,7 @@ import 'swiper/css';
 import "swiper/css/free-mode";
 import 'swiper/css/navigation';
 import '../styles/buttonSwiper.css';
-import { NumberPopularity } from "./NumberPopularity";
+import { Hate } from "./Hate";
 
 interface ContentMediaProps {
   titulo: string;
@@ -66,11 +66,11 @@ export function ContentMedia({ titulo, id }: ContentMediaProps) {
                   `}
                 >
                   
-                  {/*Essa verificação é feita porque, como o mesmo componente renderiza dois componentes diferentes, eu quero que o componente "NumberPopularity" só na primeira lista */}
+                  {/*Essa verificação é feita porque, como o mesmo componente renderiza dois componentes diferentes, eu quero que o componente "Hate" só na primeira lista */}
 
                   { id == 'popular' ? (
                     <>
-                      <NumberPopularity indexMovie={index}/>
+                      <Hate indexMovie={index}/>
                       <Media data={movie} /> {/*passando os atributos por meio de props */}
                     </>
 

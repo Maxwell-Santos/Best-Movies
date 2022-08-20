@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { MoreAboutMovieInterface } from "../interfaces/MoreAboutMovieInterface"
 
 
+//Quando clica em Siba mais, no cartaz do filme
 export function FetchMoreAboutMovie(id: string | any){
   const [movie, setMovie] = useState<MoreAboutMovieInterface>()
 
@@ -12,8 +13,5 @@ export function FetchMoreAboutMovie(id: string | any){
       .catch(err => alert(err))
 
   }, [])
-
-  console.log(movie)
-
   return movie
 }
