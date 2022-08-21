@@ -19,29 +19,25 @@ export function ResultsSearchByGenre() {
 
   return (
     <div
-      className='p-3'
+    className='py-5'
     >
 
-      <div
-        className='flex items-center p-3'
-      >
         <Link to='/' className='p-3 hover:bg-zinc-100/30 rounded-full transition-all'>
           <ArrowBack />
         </Link>
+        
         <h1
-          className='block text-lg md:text-2xl lg:text-4xl tracking-wide font-bold uppercase text-center flex-1'
+          className='block text-lg md:text-2xl lg:text-4xl tracking-wide font-bold uppercase flex-1 text-center'
         >
           {titleGenre}
         </h1>
-
-      </div>
 
       <div
         className='flex flex-wrap mt-5 md:mt-7 gap-2 md:gap-3 justify-center'
       >
         {moviesSortedByGenre.map((movie: MovieContentInterface) => {
           return (
-            <div className='w-[130px] h-[210px] md:w-[200px] md:h-[280px]'>
+            <div className='w-[70%] max-w-[180px] h-[250px] sm:w-[130px] sm:h-[210px] md:w-[200px] md:h-[280px]'>
               <Media data={movie} key={movie.id} />
             </div>
           )

@@ -21,8 +21,5 @@ export function SearchByGenre() {
 
   }, [genre]);
 
-  console.log(moviesByGenre)
-  console.log('id', genre)
-
   return { moviesByGenre, genreName}
 }
