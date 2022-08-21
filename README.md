@@ -25,6 +25,7 @@ para filtrar, basta clica em um dos gêneros do filme que mais te interessou
 ## Métodos usados
   - Context API 
   - Fetch API 
+  - React Hooks
   - Herança
   - Polimorfismo
   - Props
