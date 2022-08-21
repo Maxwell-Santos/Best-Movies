@@ -1,6 +1,5 @@
 import { ContentMedia } from "../components/ContentMedia";
 import { Footer } from "../components/Footer";
-import { Loader } from "../components/Loader";
 import { MovieProvider } from "../providers/MovieContext";
 import { MovieTopRatedProvider } from "../providers/MovieTopRatedContext";
 
