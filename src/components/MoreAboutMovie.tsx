@@ -22,6 +22,10 @@ export function MoreAboutMovie({ state, data }: MovieAtributes) {
 
   const runtimeInHours = movie && movie.runtime / 60
 
+  document.addEventListener('keydown', (e) => {
+    e.key == 'esc' && state.setShowMore(false)
+  })
+
   return (
 
     <Modal
@@ -41,11 +45,12 @@ export function MoreAboutMovie({ state, data }: MovieAtributes) {
           src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
           alt="Poster"
         />
-
+        
         <ClearRoundedIcon
           className="p-1 rounded-full bg-gray-100/40 absolute top-2 left-2 sm:top-3 sm:left-3 md:top-5 md:left-5 flex justify-center text-sm transition hover:bg-gray-100/50 z-10 shadow-md"
           onClick={() => state.setShowMore(false)}
         />
+        
 
         <div
           className="relative w-full h-full p-7 pt-9 md:p-12 md:pt-14 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-900 flex flex-col lg:justify-start"
