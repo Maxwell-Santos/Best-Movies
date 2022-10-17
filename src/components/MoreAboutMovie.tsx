@@ -29,8 +29,7 @@ export function MoreAboutMovie() {
             className="relative text-white w-screen
             flex flex-col items-center justify-center md:justify-start
             max-w-[750px] 
-            h-fit
-            sm:h-full
+            h-full
             sm:w-[70vw]"
           >
             <img
