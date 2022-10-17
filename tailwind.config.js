@@ -16,6 +16,10 @@ module.exports = {
       boxShadow: {
         'number' : '32px 10px 31px 0px #081524'
       },
+      screens:{
+        'smaller': '250px',
+        'normal': '310px'
+      }
     }
   },
   plugins: [

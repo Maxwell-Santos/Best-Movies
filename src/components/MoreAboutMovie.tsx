@@ -26,7 +26,11 @@ export function MoreAboutMovie() {
       {
         movie ? (
           <div
-            className="relative text-white w-full md:h-full min-h-fit sm:w-[70vw] max-w-[750px] pb-10"
+            className="relative text-white w-screen  pb-10
+            max-w-[750px] 
+            smaller:h-fit 
+            normal:h-full 
+            sm:w-[70vw]"
           >
             <img
               className="absolute w-full h-full object-cover object-center -z-10"
