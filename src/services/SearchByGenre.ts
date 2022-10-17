@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useMemo, useState } from "react"
 import { useParams } from "react-router-dom";
 
 /**
@@ -13,13 +13,16 @@ export function SearchByGenre() {
 
   const SEARCH_BY_GENRE_API = `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&language=pt-BR&with_genres=${genre}`;
 
-  useEffect(() => {
-    fetch(SEARCH_BY_GENRE_API)
-      .then(data => data.json())
-      .then(response => setMoviesByGenre(response.results))
-      .catch(error => console.log(error))
+  useMemo(async () => {
+    try {
+      const data = await fetch(SEARCH_BY_GENRE_API);
+      const response = await data.json();
+      setMoviesByGenre(response.results);
 
-  }, [genre]);
+    } catch (error) {
+      return console.log(error);
+    }
+  },[genre])
 
   return { moviesByGenre, genreName}
 }

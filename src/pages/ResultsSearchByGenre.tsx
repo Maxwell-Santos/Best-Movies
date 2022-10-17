@@ -4,6 +4,9 @@ import { Header } from '../components/Header';
 import { Media } from '../components/Media';
 import { SearchByGenre } from '../services/SearchByGenre';
 import { CircularProgress } from '@mui/material';
+import { useEffect } from 'react';
+
+import Scroll from 'react-scroll'
 
 /**
  * Esse componente vai mostrar os filmes daquele gênero
@@ -13,15 +16,26 @@ export function ResultsSearchByGenre() {
   const moviesSortedByGenre = SearchByGenre().moviesByGenre;
   const titleGenre = SearchByGenre().genreName;
 
+  const S = Scroll.scroller
+
+  useEffect(() => {
+    S.scrollTo('header', {
+      delay: 800,
+      // duration: 1500,
+      offset: -20
+    })
+
+  }, [moviesSortedByGenre])
+
   return (
-    <div
-      className='py-5'
-    >
+    <>
       <Header genreTitle={titleGenre} />
+
       {
         moviesSortedByGenre ? (
           <div
             className='relative flex flex-wrap mt-5 md:mt-7 gap-2 md:gap-3 justify-center'
+            id='comp'
           >
 
             {moviesSortedByGenre.map((movie: MovieContentInterface) => {
@@ -43,12 +57,9 @@ export function ResultsSearchByGenre() {
           <div className='absolute inset-0 w-screen h-screen flex justify-center items-center'>
             <CircularProgress color='inherit' />
           </div>
-
-
         )
       }
-
-    </div>
+    </>
 
   )
 }

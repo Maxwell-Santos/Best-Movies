@@ -1,5 +1,4 @@
 import { ContentMedia } from "../components/ContentMedia";
-import { Footer } from "../components/Footer";
 import { MovieProvider } from "../providers/MovieContext";
 import { MovieTopRatedProvider } from "../providers/MovieTopRatedContext";
 
@@ -21,7 +20,6 @@ export function Index() {
 
         </main>
         
-        <Footer />
       </div>
     </>
   )

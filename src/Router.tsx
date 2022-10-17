@@ -1,11 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
-import { Index } from './pages/Index'
+import { MoreAboutMovie } from './components/MoreAboutMovie'
 import { ResultsSearchByGenre } from './pages/ResultsSearchByGenre'
 
 export function Router() {
   return (
     <Routes>
-      <Route path='/' element={<Index />} />
+      <Route path='/:id' element={<MoreAboutMovie/>} />
       <Route path='/:genre/:genreName' element={<ResultsSearchByGenre />} />
     </Routes>
   )

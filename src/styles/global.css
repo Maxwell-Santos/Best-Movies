@@ -7,3 +7,9 @@
     @apply font-lato bg-gradient-to-b from-[#081524] via-[#081524] to-[#0a0c0f] min-h-screen scroll-smooth text-gray-200 scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-900;
   }
 }
+
+@layer components{
+  .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
+  @apply bg-red-300
+  }
+}

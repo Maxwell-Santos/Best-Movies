@@ -1,5 +1,8 @@
 export interface MoreAboutMovieInterface{
   id: number;
+  poster_path: string;
+  title: string;
+  overview: string;
 
   genres:{
     id: number,
