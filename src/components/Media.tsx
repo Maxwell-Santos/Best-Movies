@@ -16,7 +16,7 @@ export function Media({ data }: MovieProps) {
         to={`/${data.id}`}
       >
         <img
-          className="w-full h-full -z-10 object-cover transition group-hover:blur-sm delay-100 lg:pointer-events-none md:group-hover:scale-125 duration-300"
+          className="w-full h-full -z-10 object-cover transition sm:group-hover:blur-sm delay-100 lg:pointer-events-none md:group-hover:scale-125 duration-300"
           src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
           alt="banner"
           loading="lazy"
