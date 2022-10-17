@@ -126,8 +126,6 @@ export function MoreAboutMovie() {
         ) : (
           <div className='
             w-screen h-screen  max-w-[750px] 
-            smaller:h-fit 
-            normal:h-full 
             sm:w-[70vw] 
             grid place-items-center
             '>
