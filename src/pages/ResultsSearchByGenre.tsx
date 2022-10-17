@@ -54,8 +54,9 @@ export function ResultsSearchByGenre() {
 
           </div>
         ) : (
-          <div className='absolute inset-0 w-screen h-screen flex justify-center items-center'>
-            <CircularProgress color='inherit' />
+
+          <div className='w-screen h-[200px] flex justify-center items-center'>
+            <CircularProgress color='primary' />
           </div>
         )
       }

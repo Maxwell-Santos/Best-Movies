@@ -13,7 +13,7 @@ export function MoreAboutMovie() {
   const [open, setOpen] = useState(true)
 
   //desestrutura o atributo id do filme selecionado, para usar como parâmetro para uma outra requisição mais detalhada do filme
-  const { id } = useParams()
+  const { id } = useParams();
   const movie = FetchMoreAboutMovie(id);
 
   const runtimeInHours = movie && movie.runtime / 60
@@ -26,10 +26,11 @@ export function MoreAboutMovie() {
       {
         movie ? (
           <div
-            className="relative text-white w-screen  pb-10
+            className="relative text-white w-screen
+            flex flex-col items-center justify-center md:justify-start
             max-w-[750px] 
-            smaller:h-fit 
-            normal:h-full 
+            h-fit
+            sm:h-full
             sm:w-[70vw]"
           >
             <img
@@ -125,9 +126,13 @@ export function MoreAboutMovie() {
 
         ) : (
           <div className='
-            w-full h-screen sm:w-[70vw] lg:w-[50vw] max-w-[700px] 
-            grid place-items-center'>
-            <CircularProgress color='inherit' />
+            w-screen h-screen  max-w-[750px] 
+            smaller:h-fit 
+            normal:h-full 
+            sm:w-[70vw] 
+            grid place-items-center
+            '>
+            <CircularProgress color='primary' />
           </div>
         )
       }
