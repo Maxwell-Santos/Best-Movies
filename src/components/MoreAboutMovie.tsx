@@ -27,7 +27,7 @@ export function MoreAboutMovie() {
         movie ? (
           <div
             className="relative text-white w-screen
-            flex flex-col items-center justify-center md:justify-start
+            flex flex-col items-center justify-center md:justify-start overflow-x-auto
             max-w-[750px] 
             h-full
             sm:w-[70vw]"
@@ -124,10 +124,12 @@ export function MoreAboutMovie() {
           </div>
 
         ) : (
+          
           <div className='
-            w-screen h-screen  max-w-[750px] 
+            w-screen h-screen max-w-[750px] 
             sm:w-[70vw] 
             grid place-items-center
+            bg-black/30 filter backdrop-blur-sm
             '>
             <CircularProgress color='primary' />
           </div>
