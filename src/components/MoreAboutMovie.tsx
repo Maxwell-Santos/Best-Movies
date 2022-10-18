@@ -26,8 +26,8 @@ export function MoreAboutMovie() {
       {
         movie ? (
           <div
-            className="relative text-white w-screen
-            flex flex-col items-center justify-center md:justify-start overflow-x-auto
+            className="text-white w-screen
+            flex flex-col items-center justify-center md:justify-start
             max-w-[750px] 
             h-full
             sm:w-[70vw]"
@@ -102,11 +102,21 @@ export function MoreAboutMovie() {
             </div>
 
             <div className="mx-7">
+              <div 
+              className="relative overflow-y-auto w-full h-[300px] mt-2 
+              after:content-[''] 
+              after:w-full 
+              after:h-5 
+              after:absolute 
+               
+              after:bottom-0 after:right-0 after:left-0 "
+              >
               <p
-                className="mt-3 leading-relaxed text-lg text-zinc-200 md:text-lg first-letter:text-5xl first-letter:float-left first-letter:tracking-widest"
+                className="mt-3 leading-relaxed text-lg text-zinc-200 md:text-lg first-letter:text-5xl first-letter:float-left first-letter:tracking-widest py-2"
               >
                 {movie.overview}
               </p>
+              </div>
               <div
                 className="flex-col flex text-lg mt-5 tracking-wide"
               >
@@ -124,7 +134,7 @@ export function MoreAboutMovie() {
           </div>
 
         ) : (
-          
+
           <div className='
             w-screen h-screen max-w-[750px] 
             sm:w-[70vw] 
