@@ -77,7 +77,7 @@ export function ResultsSearchByGenre() {
     <>
       <Header genreTitle={titleGenre} />
 
-      {moviesSortedByGenre || moreMovies ? (
+      {moviesSortedByGenre ? (
           <div
             className='relative flex flex-wrap mt-5 md:mt-7 gap-2 md:gap-3 justify-center max-w-[1444px] mx-auto'
             id='comp'
