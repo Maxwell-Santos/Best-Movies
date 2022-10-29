@@ -6,7 +6,7 @@ export function Index() {
 
   return (
     <>
-      <div className="mb-9">
+      <div className="mb-24">
 
         <main className="mb-10">
 

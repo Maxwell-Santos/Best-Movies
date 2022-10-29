@@ -7,7 +7,7 @@ import { MovieTopRatedContext } from "../providers/MovieTopRatedContext";
 import { MovieContentInterface } from '../interfaces/MovieContentInterface'
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, FreeMode, Navigation } from "swiper";
+import { FreeMode, Navigation } from "swiper";
 import 'swiper/css';
 import "swiper/css/free-mode";
 import 'swiper/css/navigation';
@@ -49,10 +49,10 @@ export function ContentMedia({ titulo, id }: ContentMediaProps) {
 
         <Swiper
           slidesPerView={"auto"}
+          direction={"horizontal"}
           freeMode
-          mousewheel
           spaceBetween={10}
-          modules={[Mousewheel, FreeMode, Navigation]}
+          modules={[FreeMode, Navigation]}
           //mostrará o botão de navegação apenas se a tela for maior ou igual à 760px
           navigation={screen.width >= 760 ? true : false} 
           className="pr-5"

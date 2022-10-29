@@ -4,7 +4,7 @@ import { Header } from '../components/Header';
 import { Media } from '../components/Media';
 import { SearchByGenre } from '../services/SearchByGenre';
 import { CircularProgress } from '@mui/material';
-import { useEffect, useState, useMemo} from 'react';
+import { useEffect, useState, useMemo } from 'react';
 
 import Scroll from 'react-scroll'
 import { loadMoreMovies } from '../services/LoadMoreMovies';
@@ -20,27 +20,28 @@ export function ResultsSearchByGenre() {
   const titleGenre = SearchByGenre().genreName
   const idGenre = SearchByGenre().genre
 
-  const [moreMovies, setMoreMovies] = useState<any>([])
+  const [moreMovies, setMoreMovies] = useState<any>([...moviesSortedByGenre])
   const [page, setPage] = useState(1)
 
   const S = Scroll.scroller
 
-  function changePage(page: number) {
+  useEffect(() => {
+    setMoreMovies([])
+    setPage(1)
 
-    idGenre && loadMoreMovies(page, idGenre)
-      .then(data => {
-        console.log(page)
-        setMoreMovies((prev: any) => [...prev, ...data])
-      })
-  }
+  }, [idGenre])
 
   useEffect(() => {
-    //essa condição foi preciso para evitar a repetição dos 20 primeiros filmes
     if (page == 1) {
       return
     } else {
-      changePage(page)
+      idGenre && loadMoreMovies(page, idGenre)
+        .then(data => {
+          console.log(page)
+          setMoreMovies((prev: any) => [...prev, ...data])
+        })
     }
+
   }, [page])
 
 
@@ -78,60 +79,59 @@ export function ResultsSearchByGenre() {
       <Header genreTitle={titleGenre} />
 
       {moviesSortedByGenre ? (
-          <div
-            className='relative flex flex-wrap mt-5 md:mt-7 gap-2 md:gap-3 justify-center max-w-[1444px] mx-auto'
-            id='comp'
-          >
+        <div
+          className='relative flex flex-wrap mt-5 md:mt-7 gap-2 md:gap-3 justify-center max-w-[1444px] mx-auto'
+          id='comp'
+        >
 
-            {moviesSortedByGenre.map((movie: MovieContentInterface, index: number) => {
-              return (
-                <div
-                  className={`
+          {moviesSortedByGenre.map((movie: MovieContentInterface, index: number) => {
+            return (
+              <div
+                className={`
                 w-[150px] h-[230px]
                 sm:w-[130px] sm:h-[210px] 
                 md:w-[200px] md:h-[280px]`}
-                  key={index}
-                >
-                  <Media data={movie} />
-                </div>
-              )
-            })}
-
-            {moreMovies.map((movie: MovieContentInterface, index: number) => {
-              return (
-                <div
-                  className={`
+                key={index}
+              >
+                <Media data={movie} />
+              </div>
+            )
+          })}
+          {moreMovies.map((movie: MovieContentInterface, index: number) => {
+            return (
+              <div
+                className={`
                 w-[150px] h-[230px]
                 sm:w-[130px] sm:h-[210px] 
                 md:w-[200px] md:h-[280px]`}
-                  key={index}
-                >
-                  <Media data={movie} />
-                </div>
-              )
-            })}
+                key={index}
+              >
+                <Media data={movie} />
+              </div>
+            )
+          })}
 
-            <div id="sentinela" className='h-full w-3'></div>
+          <div id="sentinela" className='h-full w-3'></div>
 
-            <button
+          <button
             className='fixed bottom-5 right-5 rounded-md aspect-square bg-white/10 backdrop-blur-md z-50 sm:p-3 transition-all
             hover:bg-white/20
             hover:-translate-y-2'
-            onClick={() => window.scrollTo(0,0)}
+            onClick={() => window.scrollTo(0, 0)}
             title="voltar ao topo da página"
-            >
-              <KeyboardArrowUpIcon
+          >
+            <KeyboardArrowUpIcon
               fontSize="large"
-              />
-            </button>
-          </div>
-          
-        ) : (
+            />
+          </button>
+        </div>
 
-          <div className='w-screen h-[200px] flex justify-center items-center'>
-            <CircularProgress color='primary' />
-          </div>
-        )
+      ) : (
+
+        <div className='w-screen h-[200px] flex justify-center items-center'>
+          <CircularProgress color='primary' />
+        </div>
+      )
       }
     </>
 

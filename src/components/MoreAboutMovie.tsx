@@ -8,8 +8,6 @@ import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Index } from "../pages/Index";
-import { ResultsSearchByGenre } from "../pages/ResultsSearchByGenre";
 
 interface MoreAboutMovieProps{
   state: {
@@ -21,13 +19,10 @@ interface MoreAboutMovieProps{
 export function MoreAboutMovie({state, data}: MoreAboutMovieProps) {
 
   //desestrutura o atributo id do filme selecionado, para usar como parâmetro para uma outra requisição mais detalhada do filme
-  const { id, backdrop_path } = data;
+  const { id } = data;
   const movie = FetchMoreAboutMovie(id);
 
   const runtimeInHours = movie && movie.runtime / 60
-
-  console.log(data)
-
   return (
     <Drawer
       anchor='right'

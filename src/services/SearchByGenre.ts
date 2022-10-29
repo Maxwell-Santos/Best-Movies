@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { useParams } from "react-router-dom";
-import { loadMoreMovies } from "./LoadMoreMovies";
 
 /**
  * Aqui vai ficar a requisição para a API, onde vai retornar os filmes daquele gênero
