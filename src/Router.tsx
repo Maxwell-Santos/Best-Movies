@@ -5,8 +5,8 @@ import { ResultsSearchByGenre } from './pages/ResultsSearchByGenre'
 export function Router() {
   return (
     <Routes>
-      <Route path='/:id' element={<MoreAboutMovie/>} />
       <Route path='/:genre/:genreName' element={<ResultsSearchByGenre />} />
+      {/* <Route path='/:id' element={<MoreAboutMovie/>} /> */}
     </Routes>
   )
 }

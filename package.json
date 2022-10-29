@@ -1,5 +1,5 @@
 {
-  "name": "the-best-of-dream-works",
+  "name": "best-movies",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -20,7 +20,8 @@
     "react-router-dom": "^6.3.0",
     "react-scroll": "^1.8.7",
     "swiper": "^8.3.1",
-    "tailwind-scrollbar": "^1.3.1"
+    "tailwind-scrollbar": "^1.3.1",
+    "update": "^0.7.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

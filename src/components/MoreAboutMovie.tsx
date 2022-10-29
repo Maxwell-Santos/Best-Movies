@@ -8,20 +8,30 @@ import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Index } from "../pages/Index";
+import { ResultsSearchByGenre } from "../pages/ResultsSearchByGenre";
 
-export function MoreAboutMovie() {
-  const [open, setOpen] = useState(true)
+interface MoreAboutMovieProps{
+  state: {
+    showMore: any,
+    setShowMore: any,
+  };
+  data: any;
+}
+export function MoreAboutMovie({state, data}: MoreAboutMovieProps) {
 
   //desestrutura o atributo id do filme selecionado, para usar como parâmetro para uma outra requisição mais detalhada do filme
-  const { id } = useParams();
+  const { id, backdrop_path } = data;
   const movie = FetchMoreAboutMovie(id);
 
   const runtimeInHours = movie && movie.runtime / 60
 
+  console.log(data)
+
   return (
     <Drawer
       anchor='right'
-      open={open}
+      open={state.showMore}
     >
       {
         movie ? (
@@ -44,8 +54,7 @@ export function MoreAboutMovie() {
             <ClearRoundedIcon
               className="p-1 rounded-full bg-gray-100/40 fixed top-2 left-2 sm:top-3 sm:left-3 md:top-5 md:left-5 flex justify-center text-sm transition hover:bg-gray-100/50 z-10 shadow-md"
               onClick={() => {
-                history.back()
-                setOpen(false)
+                state.setShowMore(false)
 
               }}
             />
@@ -91,6 +100,7 @@ export function MoreAboutMovie() {
                     to={`/${genre.id}/${genre.name}`} 
                     key={genre.id}
                     className="first:ml-7"
+                    onClick={() => state.setShowMore(false)}
                     >
                       <Genres key={genre.id} name={genre.name} />
                     </Link>
