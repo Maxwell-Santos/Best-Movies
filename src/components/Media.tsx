@@ -46,13 +46,6 @@ export function Media({ data }: MovieProps) {
           {data.overview}
         </p>
 
-        {/* <Link
-          to={`/${data.id}`}
-          className='bg-[#0d3d74] hover:bg-[#121983] w-full text-base tracking-wide font-bold py-2 transition text-center rounded-md shadow-md'
-        >
-          Saiba mais
-        </Link> */}
-
         <button
           onClick={() => setShowMore(true)}
           className='bg-[#0d3d74] hover:bg-[#121983] w-full text-base tracking-wide font-bold py-2 transition text-center rounded-md shadow-md'

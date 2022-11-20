@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FetchMoreAboutMovie } from "../services/MORE_ABOUT_MOVIE_API";
 
 import { Genres } from "./Genres";
@@ -6,23 +5,24 @@ import { CircularProgress, Drawer, Rating } from "@mui/material";
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-interface MoreAboutMovieProps{
+interface MoreAboutMovieProps {
   state: {
     showMore: any,
     setShowMore: any,
   };
   data: any;
 }
-export function MoreAboutMovie({state, data}: MoreAboutMovieProps) {
+export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
 
   //desestrutura o atributo id do filme selecionado, para usar como parâmetro para uma outra requisição mais detalhada do filme
   const { id } = data;
-  const movie = FetchMoreAboutMovie(id);
+  const { movie, watchProviders } = FetchMoreAboutMovie(id);
+  const runtimeInHours = movie && movie.runtime / 60;
 
-  const runtimeInHours = movie && movie.runtime / 60
+  console.log(watchProviders)
   return (
     <Drawer
       anchor='right'
@@ -32,7 +32,7 @@ export function MoreAboutMovie({state, data}: MoreAboutMovieProps) {
         movie ? (
           <div
             className="text-white w-screen
-            flex flex-col items-center justify-center md:justify-start
+            flex flex-col items-center md:justify-start
             max-w-[750px] 
             h-full
             sm:w-[70vw]"
@@ -92,10 +92,10 @@ export function MoreAboutMovie({state, data}: MoreAboutMovieProps) {
                   return (
 
                     <Link
-                    to={`/${genre.id}/${genre.name}`} 
-                    key={genre.id}
-                    className="first:ml-7"
-                    onClick={() => state.setShowMore(false)}
+                      to={`/${genre.id}/${genre.name}`}
+                      key={genre.id}
+                      className="first:ml-7"
+                      onClick={() => state.setShowMore(false)}
                     >
                       <Genres key={genre.id} name={genre.name} />
                     </Link>
@@ -107,8 +107,8 @@ export function MoreAboutMovie({state, data}: MoreAboutMovieProps) {
             </div>
 
             <div className="mx-7">
-              <div 
-              className="relative overflow-y-auto w-full h-[300px] mt-2 
+              <div
+                className="relative overflow-y-auto w-full h-[300px] mt-2 
               after:content-[''] 
               after:w-full 
               after:h-5 
@@ -116,11 +116,11 @@ export function MoreAboutMovie({state, data}: MoreAboutMovieProps) {
                
               after:bottom-0 after:right-0 after:left-0 "
               >
-              <p
-                className="mt-3 leading-relaxed text-lg text-zinc-200 md:text-lg first-letter:text-5xl first-letter:float-left first-letter:tracking-widest py-2"
-              >
-                {movie.overview}
-              </p>
+                <p
+                  className="mt-3 leading-relaxed text-lg text-zinc-200 md:text-lg first-letter:text-5xl first-letter:float-left first-letter:tracking-widest py-2"
+                >
+                  {movie.overview}
+                </p>
               </div>
               <div
                 className="flex-col flex text-lg mt-5 tracking-wide"
@@ -134,8 +134,49 @@ export function MoreAboutMovie({state, data}: MoreAboutMovieProps) {
                   Duração: {runtimeInHours?.toFixed(2) + 'h'}
                 </span>
               </div>
-              
+
             </div>
+              <div className="bg-black/70 backdrop-blur-3xl w-full p-3 mt-2">
+                <h3
+                className="text-center text-xl uppercase tracking-wide my-5"
+                >
+                  Onde Assistir?
+                </h3>
+                {
+                  watchProviders.results.US ? (
+                    <div
+                    className="flex flex-col gap-4"
+                    >
+                      {
+                        (watchProviders.results.US.flatrate || 
+                          watchProviders.results.US.rent).map((item: any) => (
+                            <div
+                              className="h-full md:w-full flex flex-col md:flex-row gap-4 items-center text-center md:border-b md:border-b-gray-800 p-2 px-3 mb-2"
+                            >
+                              <div className="w-full max-w-[80px] h-full rounded-md overflow-hidden">
+                                <img src={`https://image.tmdb.org/t/p/w500${item.logo_path}`} alt="a logo"
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+
+                              <div className="flex flex-col items-start">
+                                <span className="hidden md:inline text-xl mb-2">{item.provider_name}</span>
+                                <a
+                                href={`https://www.google.com.br/search?q=${item.provider_name} ${movie.title}`}
+                                target="_blank"
+                                className="bg-[#0d3d74] hover:bg-[#121983] px-5 py-2 transition-all rounded-sm w-fit"
+                                >Pesquisar</a>
+                              </div>
+                            </div>
+                        ))}
+                    </div>
+
+                  ) : <div>Ainda não está disponível em nenhum streaming (provavelmente está nos cinemas ainda)</div>
+                }
+                <span
+                className="text-gray-100/50 mx-auto text-sm"
+                >Dados da empresa <a href="https://www.justwatch.com">JustWatch</a></span>
+              </div>
           </div>
 
         ) : (
