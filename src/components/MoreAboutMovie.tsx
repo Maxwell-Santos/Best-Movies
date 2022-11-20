@@ -6,7 +6,6 @@ import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 interface MoreAboutMovieProps {
   state: {
@@ -136,7 +135,7 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
               </div>
 
             </div>
-              <div className="bg-black/70 backdrop-blur-3xl w-full p-3 mt-2">
+              <div className="bg-black w-full p-3 mt-2">
                 <h3
                 className="text-center text-xl uppercase tracking-wide my-5"
                 >
@@ -145,12 +144,13 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
                 {
                   watchProviders.results.US ? (
                     <div
-                    className="flex flex-col gap-4"
+                    className="grid grid-cols-2 md:flex md:flex-col gap-4"
                     >
                       {
                         (watchProviders.results.US.flatrate || 
                           watchProviders.results.US.rent).map((item: any) => (
                             <div
+                              key={item}
                               className="h-full md:w-full flex flex-col md:flex-row gap-4 items-center text-center md:border-b md:border-b-gray-800 p-2 px-3 mb-2"
                             >
                               <div className="w-full max-w-[80px] h-full rounded-md overflow-hidden">
