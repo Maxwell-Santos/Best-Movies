@@ -21,7 +21,9 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
   const { movie, watchProviders } = FetchMoreAboutMovie(id);
   const runtimeInHours = movie && movie.runtime / 60;
 
-  console.log(watchProviders)
+
+  // console.log(watchProviders)
+ 
   return (
     <Drawer
       anchor='right'
@@ -126,7 +128,7 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
               >
                 <span
                 >
-                  Lançamento: {movie?.release_date}
+                  Lançamento: {movie.release_date}
                 </span>
                 <span
                 >
@@ -144,14 +146,15 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
                 {
                   watchProviders.results.US ? (
                     <div
-                    className="grid grid-cols-2 md:flex md:flex-col gap-4"
+                    className="grid grid-cols-3 md:flex md:flex-col gap-2 md:gap-4"
                     >
                       {
                         (watchProviders.results.US.flatrate || 
                           watchProviders.results.US.rent).map((item: any) => (
                             <div
                               key={item}
-                              className="h-full md:w-full flex flex-col md:flex-row gap-4 items-center text-center md:border-b md:border-b-gray-800 p-2 px-3 mb-2"
+                              className="h-full md:w-full flex flex-col md:flex-row gap-4 items-center text-center md:border-b md:border-b-gray-800 p-2 px-3 mb-2
+                              relative"
                             >
                               <div className="w-full max-w-[80px] h-full rounded-md overflow-hidden">
                                 <img src={`https://image.tmdb.org/t/p/w500${item.logo_path}`} alt="a logo"
@@ -159,12 +162,18 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
                                 />
                               </div>
 
-                              <div className="flex flex-col items-start">
+                              <div className="flex flex-col items-start
+                              absolute inset-0 md:relative
+                              ">
                                 <span className="hidden md:inline text-xl mb-2">{item.provider_name}</span>
                                 <a
                                 href={`https://www.google.com.br/search?q=${item.provider_name} ${movie.title}`}
                                 target="_blank"
-                                className="bg-[#0d3d74] hover:bg-[#121983] px-5 py-2 transition-all rounded-sm w-fit"
+                                className="
+                                bg-transparent
+                                text-transparent
+                                w-full h-full
+                                md:bg-[#0d3d74] md:hover:bg-[#121983] p-2 md:px-5 transition-all rounded-sm md:w-fit md:text-[#fff]"
                                 >Pesquisar</a>
                               </div>
                             </div>
