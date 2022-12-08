@@ -2,6 +2,7 @@
 
 
 <img src="./public/video.gif" alt="video do projeto"/>
+
 ## Sobre o site
 Esse site consome a api <a href="https://www.themoviedb.org/?language=pt-BR">TMDB</a> em tempo real que pega os dados quando é aberto, para pegar os filmes que estão no ranking. Ou seja, depois de um tempo se você entrar no site, provavelmente ja terá mudado algun filmes.
 

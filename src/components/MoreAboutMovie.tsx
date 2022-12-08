@@ -23,7 +23,7 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
 
 
   // console.log(watchProviders)
- 
+
   return (
     <Drawer
       anchor='right'
@@ -137,36 +137,37 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
               </div>
 
             </div>
-              <div className="bg-black w-full p-3 mt-2">
-                <h3
+            <div className="bg-black w-full p-3 mt-2">
+              <h3
                 className="text-center text-xl uppercase tracking-wide my-5"
-                >
-                  Onde Assistir?
-                </h3>
-                {
-                  watchProviders.results.US ? (
+              >
+                Onde Assistir?
+              </h3>
+              {
+                watchProviders.results.US ?
+                  (
                     <div
-                    className="grid grid-cols-3 md:flex md:flex-col gap-2 md:gap-4"
+                      className="grid grid-cols-3 md:flex md:flex-col gap-2 md:gap-4"
                     >
                       {
-                        (watchProviders.results.US.flatrate || 
-                          watchProviders.results.US.rent).map((item: any) => (
-                            <div
-                              key={item}
-                              className="h-full md:w-full flex flex-col md:flex-row gap-4 items-center text-center md:border-b md:border-b-gray-800 p-2 px-3 mb-2
-                              relative"
-                            >
-                              <div className="w-full max-w-[80px] h-full rounded-md overflow-hidden">
-                                <img src={`https://image.tmdb.org/t/p/w500${item.logo_path}`} alt="a logo"
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
 
-                              <div className="flex flex-col items-start
+                        (watchProviders.results.US.flatrate || watchProviders.results.US.rent).map((item: any) => (
+                          <div
+                            key={item}
+                            className="h-full md:w-full flex flex-col md:flex-row gap-4 items-center text-center md:border-b md:border-b-gray-800 p-2 px-3 mb-2
+                              relative"
+                          >
+                            <div className="w-full max-w-[80px] h-full rounded-md overflow-hidden">
+                              <img src={`https://image.tmdb.org/t/p/w500${item.logo_path}`} alt="a logo"
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+
+                            <div className="flex flex-col items-start
                               absolute inset-0 md:relative
                               ">
-                                <span className="hidden md:inline text-xl mb-2">{item.provider_name}</span>
-                                <a
+                              <span className="hidden md:inline text-xl mb-2">{item.provider_name}</span>
+                              <a
                                 href={`https://www.google.com.br/search?q=${item.provider_name} ${movie.title}`}
                                 target="_blank"
                                 className="
@@ -174,18 +175,19 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
                                 text-transparent
                                 w-full h-full
                                 md:bg-[#0d3d74] md:hover:bg-[#121983] p-2 md:px-5 transition-all rounded-sm md:w-fit md:text-[#fff]"
-                                >Pesquisar</a>
-                              </div>
+                              >Pesquisar</a>
                             </div>
-                        ))}
+                          </div>
+                        ))
+                      }
                     </div>
-
                   ) : <div>Ainda não está disponível em nenhum streaming (provavelmente está nos cinemas ainda)</div>
-                }
-                <span
+              }
+
+              <span
                 className="text-gray-100/50 mx-auto text-sm"
-                >Dados da empresa <a href="https://www.justwatch.com">JustWatch</a></span>
-              </div>
+              >Dados da empresa <a href="https://www.justwatch.com">JustWatch</a></span>
+            </div>
           </div>
 
         ) : (
