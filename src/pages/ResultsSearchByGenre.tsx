@@ -31,6 +31,13 @@ export function ResultsSearchByGenre() {
 
   }, [idGenre])
 
+  /**
+   * sempre que aparecer o observer, ele vai adicionar um valor para page que desencadeia a função de carregar mais filmes
+   * ao passo que o valor que está em page, será usado para selecionar a página da lista de filmes que api mostrará
+   * iniciando em página 1 e indo infinitamente 
+   * carregando sempre de acordo com o gênero selecionado
+   * se mudar o gênero, o page volta para o 1 e reinicia o ciclo
+   */
   useEffect(() => {
     if (page == 1) {
       return
@@ -49,7 +56,7 @@ export function ResultsSearchByGenre() {
     let value = document.querySelector("#sentinela")
     let options = {
       root: null,
-      rootMargin: '0px',
+      rootMargin: '500px',
       threshold: 0.1 //quando aparecer 10% dessa div, vai pegar mais filmes
     }
 
@@ -111,7 +118,7 @@ export function ResultsSearchByGenre() {
             )
           })}
 
-          <div id="sentinela" className='h-full w-3'></div>
+          <div id="sentinela" className='h-3 w-3 bg-red-500'></div>
 
           <button
             className='fixed bottom-5 right-5 rounded-md aspect-square bg-white/10 backdrop-blur-md z-50 sm:p-3 transition-all

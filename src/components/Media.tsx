@@ -1,5 +1,4 @@
 import { MovieContentInterface } from '../interfaces/MovieContentInterface';
-import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { MoreAboutMovie } from './MoreAboutMovie';
 
@@ -10,7 +9,6 @@ interface MovieProps extends MovieContentInterface {
 //pegando os dados do m
 export function Media({ data }: MovieProps) {
   const [ showMore, setShowMore] = useState(false)
-
   return (
     <div
       className="relative group bg-[#283f5a] h-full w-full overflow-hidden rounded-md z-20"

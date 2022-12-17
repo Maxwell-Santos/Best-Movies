@@ -5,6 +5,8 @@ import { CircularProgress, Drawer, Rating } from "@mui/material";
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import ClickAwayListener from '@mui/base/ClickAwayListener';
+
 import { Link } from "react-router-dom";
 
 interface MoreAboutMovieProps {
@@ -20,10 +22,7 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
   const { id } = data;
   const { movie, watchProviders } = FetchMoreAboutMovie(id);
   const runtimeInHours = movie && movie.runtime / 60;
-
-
-  // console.log(watchProviders)
-
+  
   return (
     <Drawer
       anchor='right'
@@ -31,6 +30,7 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
     >
       {
         movie ? (
+          <ClickAwayListener onClickAway={() => state.setShowMore(false)} >
           <div
             className="text-white w-screen
             flex flex-col items-center md:justify-start
@@ -85,7 +85,7 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
             </span>
 
             <div
-              className="w-full flex gap-2 flex-wrap text-zinc-100"
+              className="w-full flex items-center gap-3 flex-wrap text-zinc-100"
             >
 
               {
@@ -105,6 +105,12 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
                 }
                 )
               }
+
+              <span className="group cursor-pointer leading-3 p-1 rounded-md">?
+              <small 
+              className="hidden group-hover:inline rounded-md px-2 p-1" 
+              >Basta clicar em um gênero que terá muito mais filmes do mesmo</small>
+              </span>
             </div>
 
             <div className="mx-7">
@@ -151,7 +157,12 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
                     >
                       {
 
-                        (watchProviders.results.US.flatrate || watchProviders.results.US.rent).map((item: any) => (
+                        (
+                          watchProviders.results.US.flatrate ||  
+                          watchProviders.results.US.rent || 
+                          watchProviders.results.US.buy
+
+                          ).map((item: any) => (
                           <div
                             key={item}
                             className="h-full md:w-full flex flex-col md:flex-row gap-4 items-center text-center md:border-b md:border-b-gray-800 p-2 px-3 mb-2
@@ -189,7 +200,7 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
               >Dados da empresa <a href="https://www.justwatch.com">JustWatch</a></span>
             </div>
           </div>
-
+          </ClickAwayListener>
         ) : (
 
           <div className='
