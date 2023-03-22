@@ -93,10 +93,10 @@ export function MoreAboutMovie({ state, data }: MoreAboutMovieProps) {
                   return (
 
                     <Link
-                      to={`/${genre.id}/${genre.name}`}
+                      to={`/${genre.id}/${genre.name}`} //vai para a página ResultSearchByGenre.tsx
                       key={genre.id}
                       className="first:ml-7"
-                      onClick={() => state.setShowMore(false)}
+                      onClick={() => state.setShowMore(false)} //fecha a aba que mostra mais sobre o filme
                     >
                       <Genres key={genre.id} name={genre.name} />
                     </Link>
