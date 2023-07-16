@@ -66,7 +66,7 @@ export function ContentMedia({ titulo, id }: ContentMediaProps) {
                   className={`first:ml-10 md:first:ml-20 ml-6 md:ml-12 flex-shrink-0 w-[130px] h-[210px] md:w-[200px] md:h-[280px] z-70
                   ${id != 'popular' && 'ml-0 md:ml-2' }
                   `}
-                >
+                >{/*efeito retirada da margem por conta dos números*/}
                   
                   {/*Essa verificação é feita porque, como o mesmo componente renderiza dois componentes diferentes, eu quero que o componente "Hate" só na primeira lista */}
 

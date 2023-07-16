@@ -1,4 +1,3 @@
-import { Banner } from "../components/Banner";
 import { ContentMedia } from "../components/ContentMedia";
 import { Search } from "../components/Search";
 import { MovieProvider } from "../providers/MovieContext";
@@ -8,12 +7,10 @@ export function Index() {
 
   return (
     <>
-    <Search />
+    {/* <Search /> */}
       <main className="mb-32">
 
         <MovieProvider> {/*Contexto fazendo uma requisição dos filmes mais populares */}
-          {/* <Banner /> */}
-
           <ContentMedia titulo="Mais Populares" id="popular" />
         </MovieProvider>
 

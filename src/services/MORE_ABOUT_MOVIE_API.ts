@@ -13,15 +13,15 @@ export function FetchMoreAboutMovie(id: string | any) {
       
       const fetchMovieWatchProviders = await fetch(`https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${import.meta.env.VITE_API_KEY}`)
 
-      const seila = await fetchMovieWatchProviders.json()
+      const providers = await fetchMovieWatchProviders.json()
 
       return {
         movie: setMovie(movieData),
-        watch: setWatchProviders(seila)
+        watch: setWatchProviders(providers)
       }
       
     } catch (err) {
-      return alert(err)
+      return console.error(err)
     }
 
   },[id])

@@ -39,9 +39,8 @@ export function ResultsSearchByGenre() {
    * se mudar o gênero, o page volta para o 1 e reinicia o ciclo
    */
   useEffect(() => {
-    if (page == 1) {
-      return
-    } else {
+    if (page == 1) return
+    else {
       idGenre && loadMoreMovies(page, idGenre)
         .then(data => {
           console.log(page)
@@ -73,6 +72,7 @@ export function ResultsSearchByGenre() {
     return () => movieObserver.disconnect()
   }, [])
 
+  // escrollar para o topo sempre que mudar o gênero
   useMemo(() => {
     S.scrollTo('header', {
       delay: 800,
@@ -118,7 +118,7 @@ export function ResultsSearchByGenre() {
             )
           })}
 
-          <div id="sentinela" className='h-3 w-3 bg-red-500'></div>
+          <div id="sentinela" className='h-3 w-3 bg-transparent' />
 
           <button
             className='fixed bottom-5 right-5 rounded-md aspect-square bg-white/10 backdrop-blur-md z-50 sm:p-3 transition-all
